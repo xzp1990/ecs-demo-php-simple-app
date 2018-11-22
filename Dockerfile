@@ -11,7 +11,8 @@ ADD src /var/www
 # Configure apache
 RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www
-RUN mkdir -p /usr/local/etc/php/conf/
+RUN mkdir -p /usr/local/etc/php/conf.d/
+RUN touch /usr/local/etc/php/conf.d/newrelic.ini
 RUN curl -L https://download.newrelic.com/php_agent/release/newrelic-php5-8.3.0.226-linux.tar.gz | tar -C /tmp -zx && \
     NR_INSTALL_USE_CP_NOT_LN=1 NR_INSTALL_SILENT=1 /tmp/newrelic-php5-*/newrelic-install install && \
       rm -rf /tmp/newrelic-php5-* /tmp/nrinstall* && \
