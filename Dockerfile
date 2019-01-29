@@ -8,7 +8,7 @@ RUN apt-get install -y git curl apache2 php5 libapache2-mod-php5 php5-mcrypt php
 RUN rm -rf /var/www/*
 ADD src /var/www
 RUN mkdir -p /usr/local/etc/php/conf.d/	
-RUN curl -L https://download.newrelic.com/php_agent/release/newrelic-php5-8.3.0.226-linux.tar.gz | tar -C /tmp -zx && \	
+RUN curl -L https://download.newrelic.com/php_agent/release/newrelic-php5-8.5.0.235-linux.tar.gz | tar -C /tmp -zx && \	
     export NR_INSTALL_USE_CP_NOT_LN=1 && \	
      export NR_INSTALL_SILENT=1 && \	
       /tmp/newrelic-php5-*/newrelic-install install && \	
